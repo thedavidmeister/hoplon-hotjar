@@ -6,5 +6,4 @@
  ([] (with-cljs-compiler-options {}))
  ([options]
   (-> options
-   (assoc-in [:closure-defines 'hoplon-hotjar.data/id] hoplon-hotjar.data/id)
-   (assoc-in [:closure-defines 'hoplon-hotjar.data/sv] hoplon-hotjar.data/sv))))
+   (assoc-in [:closure-defines 'hoplon-hotjar.data/id] hoplon-hotjar.data/id))))

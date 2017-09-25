@@ -9,9 +9,9 @@
  []
  (when hoplon-hotjar.data/enabled?
   (js* "(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');")
-  (aset js/window "_hjSettings" (clj->js {:hjid hoplon-hotjar.data/id :hjsv hoplon-hotjar.data/sv}))
+  (aset js/window "_hjSettings" (clj->js {:hjid hoplon-hotjar.data/id :hjsv "5"}))
   (h/script
-   :src (str "//static.hotjar.com/c/hotjar-" hoplon-hotjar.data/id ".js?sv=" hoplon-hotjar.data/sv)
+   :src (str "//static.hotjar.com/c/hotjar-" hoplon-hotjar.data/id ".js?sv=5")
    :async true)))
 
 ; TESTS

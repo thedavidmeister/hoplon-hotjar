@@ -1,6 +1,10 @@
-(ns hoplon-hotjar.build)
+(ns hoplon-hotjar.build
+ (:require
+  hoplon-hotjar.data))
 
 (defn with-cljs-compiler-options
  ([] (with-cljs-compiler-options {}))
  ([options]
-  options))
+  (-> options
+   (assoc-in [:closure-defines 'hoplon-hotjar.data/id] hoplon-hotjar.data/id)
+   (assoc-in [:closure-defines 'hoplon-hotjar.data/sv] hoplon-hotjar.data/sv))))

@@ -1,24 +1,23 @@
 (ns hoplon-hotjar.hoplon
  (:require
-  ; [hoplon.core :as h]
-  ; hoplon-hotjar.data
-  [cljs.test :refer-macros [deftest is]]))
-  ; wheel.dom.traversal))
+  [hoplon.core :as h]
+  hoplon-hotjar.data
+  [cljs.test :refer-macros [deftest is]]
+  wheel.dom.traversal))
 
-; (defn snippet
-;  [])
- ; (when hoplon-hotjar.data/enabled?
- ;  (js* "(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');")
- ;  (aset js/window "_hjSettings" (clj->js {:hjid hoplon-hotjar.data/id :hjsv hoplon-hotjar.data/sv}))
- ;  (h/script
- ;   :src (str "//static.hotjar.com/c/hotjar-" hoplon-hotjar.data/id ".js?sv=" hoplon-hotjar.data/sv)
- ;   :async true)))
+(defn snippet
+ []
+ (when hoplon-hotjar.data/enabled?
+  (js* "(function(h,o,t,j,a,r){ h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');")
+  (aset js/window "_hjSettings" (clj->js {:hjid hoplon-hotjar.data/id :hjsv hoplon-hotjar.data/sv}))
+  (h/script
+   :src (str "//static.hotjar.com/c/hotjar-" hoplon-hotjar.data/id ".js?sv=" hoplon-hotjar.data/sv)
+   :async true)))
 
 ; TESTS
 
 (deftest ??snippet
- (is true))
- ; (let [el (snippet)]
- ;  (is (.-hj js/window))
- ;  (is (.-_hjSettings js/window))
- ;  (is (wheel.dom.traversal/is? el "script[async]"))))
+ (let [el (snippet)]
+  (is (.-hj js/window))
+  (is (.-_hjSettings js/window))
+  (is (wheel.dom.traversal/is? el "script[async]"))))

@@ -8,8 +8,10 @@
  :dependencies
  '[[org.clojure/clojure "1.9.0-alpha19"]
    [org.clojure/clojurescript "1.9.908"]
+   [hoplon "7.1.0-SNAPSHOT"]
    [thedavidmeister/wheel "0.3.0-SNAPSHOT" :scope "test"]
    [adzerk/bootlaces "0.1.13" :scope "test"]
+   [adzerk/boot-cljs "2.1.3" :scope "test"]
    [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]])
 
 (task-options!
@@ -27,7 +29,9 @@
 (deftask tests
  []
  (comp
-  (test-cljs)))
+  (test-cljs
+   :cljs-opts {:process-shim false}
+   :namespaces #{#".*"})))
 
 (deftask deploy
  []

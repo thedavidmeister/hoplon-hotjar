@@ -2,9 +2,9 @@
  #?(:clj (:require
           environ.core)))
 
-#?(:clj (def id (environ.core/env :hoplon-hotjar-id))
+#?(:clj (def id (or (environ.core/env :hoplon-hotjar-id) ""))
    :cljs (goog-define id ""))
-#?(:clj (def sv (environ.core/env :hoplon-hotjar-sv))
+#?(:clj (def sv (or (environ.core/env :hoplon-hotjar-sv) ""))
    :cljs (goog-define sv ""))
 
 (def enabled?

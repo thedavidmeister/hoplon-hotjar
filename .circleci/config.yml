@@ -26,6 +26,8 @@ jobs:
 
       - run: boot checkout
 
+      - run: boot tests
+
       - save_cache:
           paths:
             - "~/bin"
@@ -33,8 +35,6 @@ jobs:
             - "~/.boot/cache/bin"
             - "~/.boot/cache/lib"
           key: v1-dependencies-{{ checksum "build.boot" }}
-
-      - run: boot tests
 
       # deploy to clojars
       - deploy:

@@ -8,6 +8,7 @@
  :dependencies
  '[[org.clojure/clojure "1.9.0-alpha19"]
    [org.clojure/clojurescript "1.9.908"]
+   [thedavidmeister/wheel "0.3.0-SNAPSHOT" :scope "test"]
    [adzerk/bootlaces "0.1.13" :scope "test"]
    [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]])
 
